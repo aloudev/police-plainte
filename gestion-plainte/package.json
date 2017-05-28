@@ -1,0 +1,17 @@
+{
+  "name": "gestion-plainte",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.21",
+    "bootstrap": "^3.3.7",
+    "typescript": "^2.1.4"
+  }
+}
