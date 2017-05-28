@@ -18,7 +18,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 
 @Configuration
-@ComponentScan(basePackages="com.alandiay")
 public class PlainteJPAConfigurationSpring {
 
 	

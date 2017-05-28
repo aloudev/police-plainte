@@ -6,7 +6,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alandiay.police.plainte.domaine.interfaces.repository.CritereBuilder;
-import com.alandiay.police.plainte.domaine.objects.PlainteAggregateRoot;
+import com.alandiay.police.plainte.domaine.models.PlainteAggregateRoot;
 
 
 public abstract class AbstractPlainteCriteriaBuilder implements CritereBuilder<CriteriaQuery<PlainteAggregateRoot>> {

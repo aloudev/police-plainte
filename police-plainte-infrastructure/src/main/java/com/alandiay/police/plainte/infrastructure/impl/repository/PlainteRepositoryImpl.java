@@ -7,8 +7,9 @@ import java.util.List;
 
 
 
+
 import com.alandiay.police.plainte.domaine.interfaces.repository.IPlainteAggregateRootRepository;
-import com.alandiay.police.plainte.domaine.objects.PlainteAggregateRoot;
+import com.alandiay.police.plainte.domaine.models.PlainteAggregateRoot;
 import com.alandiay.police.plainte.infrastructure.interfaces.repository.AggregateRootRepositoty;
 import com.alandiay.police.plainte.infrastructure.interfaces.repository.request.builder.AbstractPlainteCriteriaBuilder;
 

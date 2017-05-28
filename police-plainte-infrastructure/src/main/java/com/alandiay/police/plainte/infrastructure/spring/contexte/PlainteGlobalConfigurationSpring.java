@@ -1,11 +1,10 @@
 package com.alandiay.police.plainte.infrastructure.spring.contexte;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Import({PlainteJPAConfigurationSpring.class})
+@ComponentScan(basePackages="com.alandiay")
 public class PlainteGlobalConfigurationSpring {
 
 }
