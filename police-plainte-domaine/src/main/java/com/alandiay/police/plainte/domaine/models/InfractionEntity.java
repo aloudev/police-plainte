@@ -1,4 +1,4 @@
-package com.alandiay.police.plainte.domaine.objects;
+package com.alandiay.police.plainte.domaine.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.alandiay.police.plainte.domaine.objects;
+package com.alandiay.police.plainte.domaine.models;
 
 import java.util.ArrayList;
 import java.util.List;

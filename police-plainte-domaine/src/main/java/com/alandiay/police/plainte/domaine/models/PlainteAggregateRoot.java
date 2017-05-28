@@ -1,6 +1,7 @@
-package com.alandiay.police.plainte.domaine.objects;
+package com.alandiay.police.plainte.domaine.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,6 +26,9 @@ public class PlainteAggregateRoot implements AggregateRoot<String> {
 	@Column(name="PLAINTE_ID")
 	private String id;
 	
+	@Column(name="PLAINTE_DATE_DECLARATION")
+	private Date dateDeclaration;
+	
 	/**
 	 * fait objet de la plainte
 	 */
@@ -33,6 +37,14 @@ public class PlainteAggregateRoot implements AggregateRoot<String> {
 //	private List<MisEnCauseEntity> miseEnCauses;
 	
 	
+	public Date getDateDeclaration() {
+		return dateDeclaration;
+	}
+
+	public void setDateDeclaration(Date dateDeclaration) {
+		this.dateDeclaration = dateDeclaration;
+	}
+
 	/**
 	 * 
 	 */
