@@ -4,7 +4,7 @@ package com.alandiay.police.plainte.domaine.interfaces.repository;
 
 import java.util.List;
 
-import com.alandiay.police.plainte.domaine.interfaces.objects.AggregateRoot;
+import com.alandiay.police.plainte.domaine.models.PlainteAggregateRoot;
 /**
  * 
  * @author alandiay
@@ -12,16 +12,15 @@ import com.alandiay.police.plainte.domaine.interfaces.objects.AggregateRoot;
  * @param <T>
  * @param <Critere>
  */
-@SuppressWarnings("rawtypes")
-public interface IPlainteAggregateRootRepository< T extends AggregateRoot, C extends CritereBuilder> {
+public interface IPlainteAggregateRootRepository<C> {
 	
 	
-	public void save(T t);
+	public void save(PlainteAggregateRoot t);
 	
-	public T find(T t);
+	public PlainteAggregateRoot find(String id);
 	
-	public void delete(T t);
+	public void delete(PlainteAggregateRoot t);
 	
-	public List<T> findAll(C c);
+	public List<PlainteAggregateRoot> findAll(C c);
 
 }

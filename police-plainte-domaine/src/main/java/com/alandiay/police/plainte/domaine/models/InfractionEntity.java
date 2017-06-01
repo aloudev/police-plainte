@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.alandiay.police.plainte.domaine.interfaces.objects.ReferentielEntity;
+import com.alandiay.police.plainte.domaine.interfaces.models.ReferentielEntity;
 
 @Entity
 @Table(name="t_infraction")
@@ -19,14 +19,14 @@ public class InfractionEntity extends ReferentielEntity {
 	@Id
 	@Column(name="INFRACTION_CODE")
 	private String id;
-	
+
 
 	public String getId() {
 		return super.getId();
 	}
 
 
-	
+
 	@Column(name="T_INFRACTION_LIBELLE")
 	public String getLibelle() {
 		return super.getLibelle();
