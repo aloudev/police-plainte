@@ -17,7 +17,7 @@ public abstract class AbstractFullProcess<X,Y> {
 public void execute(){
 
 	beforeStartup();
-	processCompleteUnit.execute();
+	processCompleteUnit.process();
 	beforeShutdown();	
 }
 	

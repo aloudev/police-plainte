@@ -15,16 +15,14 @@ public abstract class AbstractProcessUnit<X,Y> {
   
   
   
-  public void setContext(ProcessContexte context) {
-    this.context = context;
-  }
+
 
   private IProcessReader<X> processFileReader;
   private IProcessWriter<Y> processFileWriter;
   private IProcessUnit<X,Y> abstractProcessor;
   private ProcessContexte context;
 
-public void execute(){
+public void process(ProcessContexte contexte){
   
   X x = processFileReader.read(context);
   Y y = abstractProcessor.process(x,context);
