@@ -5,11 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.alandiay.police.plainte.domaine.interfaces.models.ReferentielEntity;
+import com.alandiay.police.plainte.domaine.interfaces.models.AbstractReferentielEntity;
 
 @Entity
 @Table(name="t_infraction")
-public class InfractionEntity extends ReferentielEntity {
+public class InfractionEntity extends AbstractReferentielEntity {
 
 	/**
 	 * 
@@ -19,6 +19,13 @@ public class InfractionEntity extends ReferentielEntity {
 	@Id
 	@Column(name="INFRACTION_CODE")
 	private String id;
+
+
+	public InfractionEntity(String id) {
+		super();
+		this.id = id;
+	}
+
 
 
 	public String getId() {

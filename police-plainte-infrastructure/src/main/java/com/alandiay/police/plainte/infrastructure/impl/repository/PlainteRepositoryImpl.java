@@ -8,19 +8,23 @@ import java.util.List;
 
 
 
+
+import org.springframework.stereotype.Repository;
+
 import com.alandiay.police.plainte.domaine.interfaces.repository.IPlainteAggregateRootRepository;
 import com.alandiay.police.plainte.domaine.models.PlainteAggregateRoot;
 import com.alandiay.police.plainte.infrastructure.interfaces.repository.AggregateRootRepositoty;
 import com.alandiay.police.plainte.infrastructure.interfaces.repository.request.builder.AbstractPlainteCriteriaBuilder;
 
-public class PlainteRepositoryImpl extends AggregateRootRepositoty  implements IPlainteAggregateRootRepository<PlainteAggregateRoot, AbstractPlainteCriteriaBuilder> {
+@Repository
+public class PlainteRepositoryImpl extends AggregateRootRepositoty  implements IPlainteAggregateRootRepository<AbstractPlainteCriteriaBuilder> {
 
 	public void save(PlainteAggregateRoot t) {
        getEntityManager().persist(t);		
 	}
 
-	public PlainteAggregateRoot find(PlainteAggregateRoot plainte) {
-		return getEntityManager().find(plainte.getClass(), plainte.getId());
+	public PlainteAggregateRoot find(String id) {
+		return getEntityManager().find(PlainteAggregateRoot.class,id);
 	}
 
 

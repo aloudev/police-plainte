@@ -4,9 +4,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 
+
+
 public abstract class AggregateRootRepositoty implements EntityManagerAware {
 	
-	@PersistenceContext(name="plainte-ersistence")
+	@PersistenceContext
 	private EntityManager entityManager;
 	
     public EntityManager getEntityManager(){

@@ -7,7 +7,7 @@ package com.alandiay.police.plainte.domaine.interfaces.models;
  * @author alandiay
  *
  */
-public abstract class ReferentielEntity implements PlainteEntity<String> {
+public abstract class AbstractReferentielEntity implements PlainteEntity<String> {
 
 	/**
 	 * 
