@@ -1,7 +1,6 @@
 package com.alandiay.police.plainte.domaine.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,7 +16,6 @@ import javax.persistence.Table;
 
 
 import com.alandiay.police.plainte.domaine.dtos.FaitDto;
-import com.alandiay.police.plainte.domaine.dtos.MisEnCauseDto;
 import com.alandiay.police.plainte.domaine.dtos.PlaignantDto;
 import com.alandiay.police.plainte.domaine.interfaces.models.AggregateRoot;
 
@@ -35,15 +33,6 @@ public class PlainteAggregateRoot implements AggregateRoot<Long> {
 			PlaignantDto plaignant) {
 		super();
 		this.dateDeclarationPlainte = dateDeclarationPlainte;
-		this.fait = new FaitEntity();
-		InfractionEntity infraction1 =	new InfractionEntity("1");
-	 	InfractionEntity infraction2 =	new InfractionEntity("2");
-	 	this.fait.qualifie(infraction1);
-		this.fait.qualifie(infraction2);
-		this.fait.ajouterMisEnCause(new MisEnCauseEntity());
-		this.fait.ajouterMisEnCause(new MisEnCauseEntity());
-		
-		this.plaignant = new PlaignantEntity();
 
 	}
 
@@ -93,14 +82,6 @@ public class PlainteAggregateRoot implements AggregateRoot<Long> {
 		super();
 	}
 
-	/**
-	 * permet de créer une déclaration
-	 */
-	public void declaree(Date dateDeclaration, PlaignantDto plaignant,
-			List<MisEnCauseDto> misEnCauses, FaitDto fait) {
-		this.dateDeclarationPlainte = dateDeclaration;
-
-	}
 
 	public PlaignantEntity getPlaignant() {
 		return plaignant;
