@@ -2,6 +2,9 @@ package com.alandiay.police.plainte.infrastructure.spring.contexte;
 
 import java.util.Properties;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -44,18 +47,42 @@ public class PlainteJPAConfigurationSpring {
 	 * @return DataSource
 	 */
 
+//	@Bean
+//	public DataSource dataSource() {
+//
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//
+//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//		dataSource.setUrl("jdbc:mysql://localhost:3306/police_plainte");
+//		dataSource.setUsername("root");
+//		dataSource.setPassword("");
+//
+//		return dataSource;
+//	}
+
+	/**
+	 * source de données fournie par le conteneur
+	 * @return
+	 * @throws NamingException
+	 */
 	@Bean
 	public DataSource dataSource() {
 
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/police_plainte");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
-
-		return dataSource;
+		DataSource dataSource = null;
+		try {
+			Context initContext;
+			initContext = new InitialContext();
+			Context envContext  = (Context)initContext.lookup("java:/comp/env");
+		 dataSource =  (DataSource)envContext.lookup("jdbc/plainteDB");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	return  dataSource;
 	}
+	
+	
 
 	/**
 	 * 
