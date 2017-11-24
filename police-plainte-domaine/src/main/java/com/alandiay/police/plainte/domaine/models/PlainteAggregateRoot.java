@@ -15,8 +15,7 @@ import javax.persistence.Table;
 
 
 
-import com.alandiay.police.plainte.domaine.dtos.FaitDto;
-import com.alandiay.police.plainte.domaine.dtos.PlaignantDto;
+
 import com.alandiay.police.plainte.domaine.interfaces.models.AggregateRoot;
 
 /**
@@ -29,8 +28,8 @@ import com.alandiay.police.plainte.domaine.interfaces.models.AggregateRoot;
 @Table(name = "t_plainte")
 public class PlainteAggregateRoot implements AggregateRoot<Long> {
 
-	public PlainteAggregateRoot(Date dateDeclarationPlainte, FaitDto faitdto,
-			PlaignantDto plaignant) {
+	public PlainteAggregateRoot(Date dateDeclarationPlainte, FaitEntity faitdto,
+			PlaignantEntity plaignant) {
 		super();
 		this.dateDeclarationPlainte = dateDeclarationPlainte;
 
@@ -40,6 +39,13 @@ public class PlainteAggregateRoot implements AggregateRoot<Long> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	@Override
+	public String toString() {
+		return "PlainteAggregateRoot [idPlainte=" + idPlainte
+				+ ", dateDeclarationPlainte=" + dateDeclarationPlainte
+				+ ", fait=" + fait + ", plaignant=" + plaignant + "]";
+	}
 
 	/**
 	 * identifiant de la plainte
@@ -71,15 +77,18 @@ public class PlainteAggregateRoot implements AggregateRoot<Long> {
 	@JoinColumn(name = "PLAIGNANT_ID")
 	private PlaignantEntity plaignant;
 
-	public void ajouterPlaignant(PlaignantEntity plaiEntity) {
-		this.plaignant = plaiEntity;
-	}
+
 
 	/**
 	 * constructeur vide
 	 */
 	public PlainteAggregateRoot() {
 		super();
+	}
+
+
+	public PlainteAggregateRoot(Date dateDeclaration, FaitEntity faitEntity,
+			PlaignantEntity plaignantEntity, MisEnCauseEntity misEnCauseEntity) {
 	}
 
 

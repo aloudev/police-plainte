@@ -12,6 +12,9 @@ public class PlainteDto implements Serializable {
 	
 	private Date dateDeclaration;
 
+	public PlainteDto(FaitDto faitDto, PlaignantDto plaignantDto)   {
+	}
+
 	public Date getDateDeclaration() {
 		return dateDeclaration;
 	}
@@ -19,5 +22,12 @@ public class PlainteDto implements Serializable {
 	public void setDateDeclaration(Date dateDeclaration) {
 		this.dateDeclaration = dateDeclaration;
 	}
+
+	@Override
+	public String toString() {
+		return "{dateDeclaration : " + dateDeclaration + "}";
+	}
+	
+	
 
 }

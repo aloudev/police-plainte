@@ -7,9 +7,17 @@ import javax.persistence.Table;
 
 import com.alandiay.police.plainte.domaine.interfaces.models.AbstractReferentielEntity;
 
+/**
+ * le referentiel est un objet immuable
+ * @author alandiay
+ *
+ */
 @Entity
 @Table(name="t_infraction")
-public class InfractionEntity extends AbstractReferentielEntity {
+public final class InfractionEntity extends AbstractReferentielEntity {
+
+
+
 
 	/**
 	 * 
@@ -18,25 +26,19 @@ public class InfractionEntity extends AbstractReferentielEntity {
 
 	@Id
 	@Column(name="INFRACTION_CODE")
-	private String id;
-
-
-	public InfractionEntity(String id) {
-		super();
-		this.id = id;
-	}
-
-
-
 	public String getId() {
 		return super.getId();
 	}
-
-
 
 	@Column(name="T_INFRACTION_LIBELLE")
 	public String getLibelle() {
 		return super.getLibelle();
 	}
+
+
+	public InfractionEntity(String id, String libelle) {
+		super(id, libelle);
+	}
+
 
 }

@@ -1,14 +1,13 @@
 package com.alandiay.police.plainte.domaine.models;
 
 
-import com.alandiay.police.plainte.domaine.interfaces.models.PlainteObjectValue;
 
 /**
  * adresse
  * @author alandiay
  *
  */
-public class AdresseValue extends PlainteObjectValue{
+public class AdresseValue{
 
 	/**
 	 * arrondissement
@@ -46,10 +45,6 @@ public class AdresseValue extends PlainteObjectValue{
 
 
 
-	@Override
-	public String getNomObjectValue() {
-		return this.getClass().getSimpleName() ;
-	}
 
 
 

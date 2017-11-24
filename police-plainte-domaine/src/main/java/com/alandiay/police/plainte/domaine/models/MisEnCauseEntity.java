@@ -34,6 +34,26 @@ public class MisEnCauseEntity implements PlainteEntity<Long> {
 		return prenomMisenCause;
 	}
 
+	/**
+	 * constructeur vide
+	 */
+	public MisEnCauseEntity(){
+		
+	}
+	
+	/**
+	 * constructeur plein
+	 * @param prenomMisenCause prénom du mis en cause
+	 * @param nomMisenCause nom du mis en cause
+	 */
+	public MisEnCauseEntity(String prenomMisenCause, String nomMisenCause) {
+		super();
+		this.prenomMisenCause = prenomMisenCause;
+		this.nomMisenCause = nomMisenCause;
+	}
+
+
+
 	public String getNomMisenCause() {
 		return nomMisenCause;
 	}

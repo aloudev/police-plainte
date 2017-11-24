@@ -45,9 +45,35 @@ public class FaitEntity implements PlainteEntity<Long> {
 	@Column(name = "FAIT_HEURE_DEBUT")
 	private Date heureDebutFait;
 
+	
+	@Column(name = "FAIT_HEURE_FIN")
+	private Date heureFinFait;
+
+	@OneToMany(cascade = { CascadeType.PERSIST } )
+	@JoinTable(name = "T_FAIT_T_INFRACTION", joinColumns = { @JoinColumn(name = "FAIT_ID") }, inverseJoinColumns = { @JoinColumn(name = "INFRACTION_ID") })
+	private Set<InfractionEntity> infractions = new HashSet<InfractionEntity>();
+
+	@OneToMany(cascade = { CascadeType.PERSIST })
+	@JoinTable(name = "T_FAIT_T_MISENCAUSE", joinColumns = { @JoinColumn(name = "FAIT_ID") }, inverseJoinColumns = { @JoinColumn(name = "MISENCAUSE_ID") })
+	private Set<MisEnCauseEntity> miseEnCauses = new HashSet<MisEnCauseEntity>();
+
+	
 	public FaitEntity() {
 		super();
 	}
+
+	
+	
+	
+	public FaitEntity(Date dateFait, String descriptionFait, String adresseFait) {
+		super();
+		this.dateFait = dateFait;
+		this.descriptionFait = descriptionFait;
+		this.adresseFait = adresseFait;
+	}
+
+
+
 
 	public FaitEntity(Long idFait, Date dateFait, String descriptionFait,
 			String adresseFait, Date heureDebutFait, Date heureFinFait,
@@ -64,17 +90,7 @@ public class FaitEntity implements PlainteEntity<Long> {
 		this.miseEnCauses = miseEnCauses;
 	}
 
-	@Column(name = "FAIT_HEURE_FIN")
-	private Date heureFinFait;
-
-	@OneToMany(cascade = { CascadeType.PERSIST } )
-	@JoinTable(name = "T_FAIT_T_INFRACTION", joinColumns = { @JoinColumn(name = "FAIT_ID") }, inverseJoinColumns = { @JoinColumn(name = "INFRACTION_ID") })
-	private Set<InfractionEntity> infractions = new HashSet<InfractionEntity>();
-
-	@OneToMany(cascade = { CascadeType.PERSIST })
-	@JoinTable(name = "T_FAIT_T_MISENCAUSE", joinColumns = { @JoinColumn(name = "FAIT_ID") }, inverseJoinColumns = { @JoinColumn(name = "MISENCAUSE_ID") })
-	private Set<MisEnCauseEntity> miseEnCauses = new HashSet<MisEnCauseEntity>();
-
+	
 	public Set<MisEnCauseEntity> getMiseEnCauses() {
 		if (miseEnCauses == null) {
 			miseEnCauses = new HashSet<MisEnCauseEntity>();
@@ -120,9 +136,6 @@ public class FaitEntity implements PlainteEntity<Long> {
 		this.miseEnCauses.addAll(misEnCauseEntitys);
 	}
 
-	public Long getIdFait() {
-		return idFait;
-	}
 
 	public Date getDateFait() {
 		return dateFait;
@@ -147,7 +160,7 @@ public class FaitEntity implements PlainteEntity<Long> {
 		return infractions;
 	}
 
-	public Long getId() {
+	public Long getId() {		
 		return this.idFait;
 	}
 
