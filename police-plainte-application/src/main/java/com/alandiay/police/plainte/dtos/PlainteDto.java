@@ -1,18 +1,28 @@
-package com.alandiay.police.plainte.domaine.dtos;
+package com.alandiay.police.plainte.dtos;
 
 import java.io.Serializable;
 import java.util.Date;
 
 public class PlainteDto implements Serializable {
 
+	public PlainteDto() {
+		super();
+	}
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private Date dateDeclaration;
 
-	public PlainteDto(FaitDto faitDto, PlaignantDto plaignantDto)   {
+	private FaitDto fait;
+
+	public PlainteDto(FaitDto faitDto, Date dateDeclaration) {
+
+		this.dateDeclaration = dateDeclaration;
+		this.fait = faitDto;
+
 	}
 
 	public Date getDateDeclaration() {
@@ -27,7 +37,12 @@ public class PlainteDto implements Serializable {
 	public String toString() {
 		return "{dateDeclaration : " + dateDeclaration + "}";
 	}
-	
-	
 
+	public FaitDto getFait() {
+		return fait;
+	}
+
+	public void setFait(FaitDto fait) {
+		this.fait = fait;
+	}
 }

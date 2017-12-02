@@ -20,8 +20,8 @@ public class MisEnCauseEntity implements PlainteEntity<Long> {
 
 	@Id
 	@Column(name = "MISENCAUSE_ID")
-	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
-	@SequenceGenerator (name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 1) 
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
+	@SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 1)
 	private Long idMisEnCause;
 
 	@Column(name = "MISENCAUSE_PRENOM")
@@ -30,6 +30,9 @@ public class MisEnCauseEntity implements PlainteEntity<Long> {
 	@Column(name = "MISENCAUSE_NOM")
 	private String nomMisenCause;
 
+	@Column(name = "MISENCAUSE_SEXE")
+	private boolean sexe;
+
 	public String getPrenomMisenCause() {
 		return prenomMisenCause;
 	}
@@ -37,14 +40,17 @@ public class MisEnCauseEntity implements PlainteEntity<Long> {
 	/**
 	 * constructeur vide
 	 */
-	public MisEnCauseEntity(){
-		
+	public MisEnCauseEntity() {
+
 	}
-	
+
 	/**
 	 * constructeur plein
-	 * @param prenomMisenCause prénom du mis en cause
-	 * @param nomMisenCause nom du mis en cause
+	 * 
+	 * @param prenomMisenCause
+	 *            prénom du mis en cause
+	 * @param nomMisenCause
+	 *            nom du mis en cause
 	 */
 	public MisEnCauseEntity(String prenomMisenCause, String nomMisenCause) {
 		super();
@@ -52,7 +58,11 @@ public class MisEnCauseEntity implements PlainteEntity<Long> {
 		this.nomMisenCause = nomMisenCause;
 	}
 
-
+	public MisEnCauseEntity(String nom, String prenom, boolean sexe) {
+		this.nomMisenCause = nom;
+		this.prenomMisenCause = prenom;
+		this.sexe = sexe;
+	}
 
 	public String getNomMisenCause() {
 		return nomMisenCause;
@@ -60,6 +70,10 @@ public class MisEnCauseEntity implements PlainteEntity<Long> {
 
 	public Long getId() {
 		return idMisEnCause;
+	}
+
+	public boolean isSexe() {
+		return sexe;
 	}
 
 }

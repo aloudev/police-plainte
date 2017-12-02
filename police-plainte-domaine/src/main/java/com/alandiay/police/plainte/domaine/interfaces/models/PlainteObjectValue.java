@@ -1,10 +1,12 @@
 package com.alandiay.police.plainte.domaine.interfaces.models;
 
-import javax.persistence.Embeddable;
+/**
+ * interface des objects value
+ * 
+ * @author alandiay
+ *
+ */
 
-@Embeddable
-public abstract class PlainteObjectValue {
+public interface PlainteObjectValue {
 
-	
-	public  abstract String getNomObjectValue();
 }

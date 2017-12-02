@@ -13,9 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
-
-
 import com.alandiay.police.plainte.domaine.interfaces.models.AggregateRoot;
 
 /**
@@ -28,10 +25,11 @@ import com.alandiay.police.plainte.domaine.interfaces.models.AggregateRoot;
 @Table(name = "t_plainte")
 public class PlainteAggregateRoot implements AggregateRoot<Long> {
 
-	public PlainteAggregateRoot(Date dateDeclarationPlainte, FaitEntity faitdto,
+	public PlainteAggregateRoot(Date dateDeclarationPlainte, FaitEntity fait,
 			PlaignantEntity plaignant) {
 		super();
 		this.dateDeclarationPlainte = dateDeclarationPlainte;
+		this.fait = fait;
 
 	}
 
@@ -65,7 +63,7 @@ public class PlainteAggregateRoot implements AggregateRoot<Long> {
 	/**
 	 * fait objet de la plainte
 	 */
-	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "FAIT_ID")
 	private FaitEntity fait;
 
@@ -73,11 +71,9 @@ public class PlainteAggregateRoot implements AggregateRoot<Long> {
 	 * plaignant
 	 */
 
-	@OneToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "PLAIGNANT_ID")
 	private PlaignantEntity plaignant;
-
-
 
 	/**
 	 * constructeur vide
@@ -86,11 +82,25 @@ public class PlainteAggregateRoot implements AggregateRoot<Long> {
 		super();
 	}
 
-
 	public PlainteAggregateRoot(Date dateDeclaration, FaitEntity faitEntity,
 			PlaignantEntity plaignantEntity, MisEnCauseEntity misEnCauseEntity) {
 	}
 
+	/**
+	 * 
+	 * @param dateDeclaration
+	 *            date de la déclaration
+	 * @param plaignant
+	 *            plaignant
+	 * @param fait
+	 *            fait de la plainte
+	 */
+	public PlainteAggregateRoot(Date dateDeclaration,
+			PlaignantEntity plaignant, FaitEntity fait) {
+		this.dateDeclarationPlainte = dateDeclaration;
+		this.plaignant = plaignant;
+		this.fait = fait;
+	}
 
 	public PlaignantEntity getPlaignant() {
 		return plaignant;

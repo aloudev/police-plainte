@@ -10,8 +10,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -30,6 +33,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class PlainteJPAConfigurationSpring {
 
 	
+	Logger logger = LoggerFactory.getLogger(PlainteJPAConfigurationSpring.class);
 	
 	/**
 	 * factory methode de critère builder
@@ -48,7 +52,8 @@ public class PlainteJPAConfigurationSpring {
 	 */
 
 //	@Bean
-//	public DataSource dataSource() {
+////	@Profile("dev")
+//	public DataSource dataSourceDev() {
 //
 //		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 //
@@ -56,7 +61,7 @@ public class PlainteJPAConfigurationSpring {
 //		dataSource.setUrl("jdbc:mysql://localhost:3306/police_plainte");
 //		dataSource.setUsername("root");
 //		dataSource.setPassword("");
-//
+//		
 //		return dataSource;
 //	}
 
@@ -66,6 +71,7 @@ public class PlainteJPAConfigurationSpring {
 	 * @throws NamingException
 	 */
 	@Bean
+	//@Profile("prod")
 	public DataSource dataSource() {
 
 		DataSource dataSource = null;
@@ -75,8 +81,6 @@ public class PlainteJPAConfigurationSpring {
 			Context envContext  = (Context)initContext.lookup("java:/comp/env");
 		 dataSource =  (DataSource)envContext.lookup("jdbc/plainteDB");
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 	return  dataSource;
@@ -92,7 +96,7 @@ public class PlainteJPAConfigurationSpring {
 	public EntityManagerFactory entityManagerFactory() {
 
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-
+		logger.debug("hello world");
 		factory.setDataSource(dataSource());
 		factory.setPackagesToScan("com.alandiay.police.plainte.domaine");
 		factory.setPersistenceUnitName("plainte");
@@ -116,7 +120,7 @@ public class PlainteJPAConfigurationSpring {
 	public PlatformTransactionManager transactionManager() {
 
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
-
+		
 		transactionManager.setEntityManagerFactory(entityManagerFactory());
 		
 		return transactionManager;
@@ -126,8 +130,8 @@ public class PlainteJPAConfigurationSpring {
 
 		Properties properties = new Properties();
 		//properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-		properties.setProperty("hibernate.dialect",
-				"org.hibernate.dialect.MySQL5Dialect");
+		//properties.setProperty("hibernate.dialect",
+			//	"org.hibernate.dialect.MySQL5Dialect");
 
 		return properties;
 	}

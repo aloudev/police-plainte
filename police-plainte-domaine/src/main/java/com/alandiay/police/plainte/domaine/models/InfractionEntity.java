@@ -14,7 +14,7 @@ import com.alandiay.police.plainte.domaine.interfaces.models.AbstractReferentiel
  */
 @Entity
 @Table(name="t_infraction")
-public final class InfractionEntity extends AbstractReferentielEntity {
+public final class InfractionEntity extends AbstractReferentielEntity  {
 
 
 

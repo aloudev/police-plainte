@@ -1,5 +1,7 @@
 package com.alandiay.police.plainte.domaine.models;
 
+import com.alandiay.police.plainte.domaine.interfaces.models.PlainteObjectValue;
+
 
 
 /**
@@ -7,21 +9,21 @@ package com.alandiay.police.plainte.domaine.models;
  * @author alandiay
  *
  */
-public class AdresseValue{
+public class AdresseValue implements PlainteObjectValue{
 
 	/**
 	 * arrondissement
 	 */
-	private String arrondissement;
+	private final String arrondissement;
 	/**
 	 * numéro de la rue
 	 */
-	private int numeroRue;
+	private final int numeroRue;
 
 	/**
 	 * nom de la rue
 	 */
-	private String nomRue;
+	private final String nomRue;
 
 	/**
 	 * région
@@ -45,6 +47,17 @@ public class AdresseValue{
 
 
 
+
+
+
+	public AdresseValue(String arrondissement, int numeroRue, String nomRue,
+			String region) {
+		super();
+		this.arrondissement = arrondissement;
+		this.numeroRue = numeroRue;
+		this.nomRue = nomRue;
+		this.region = region;
+	}
 
 
 

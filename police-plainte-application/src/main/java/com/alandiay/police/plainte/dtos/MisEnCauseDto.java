@@ -1,4 +1,4 @@
-package com.alandiay.police.plainte.domaine.dtos;
+package com.alandiay.police.plainte.dtos;
 
 import java.io.Serializable;
 

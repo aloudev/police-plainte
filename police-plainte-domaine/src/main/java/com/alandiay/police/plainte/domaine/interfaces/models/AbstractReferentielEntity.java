@@ -1,5 +1,8 @@
 package com.alandiay.police.plainte.domaine.interfaces.models;
 
+import javax.persistence.Cacheable;
+
+
 
 
 /**
@@ -7,17 +10,18 @@ package com.alandiay.police.plainte.domaine.interfaces.models;
  * @author alandiay
  *
  */
-public abstract class AbstractReferentielEntity implements PlainteEntity<String> {
+@Cacheable
+public abstract class AbstractReferentielEntity implements PlainteEntity<String>, PlainteObjectValue {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String id;
+	private final  String id ;
 	
 	
-	private String libelle;
+	private final String libelle;
 	
 	
 	public String getId() {
@@ -27,6 +31,13 @@ public abstract class AbstractReferentielEntity implements PlainteEntity<String>
 
 	public String getLibelle() {
 		return libelle;
+	}
+
+
+	public AbstractReferentielEntity(String id, String libelle) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
 	}
 
 	

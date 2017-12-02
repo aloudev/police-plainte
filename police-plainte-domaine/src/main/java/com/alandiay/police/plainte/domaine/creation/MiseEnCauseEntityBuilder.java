@@ -20,8 +20,7 @@ public class MiseEnCauseEntityBuilder implements IBuilder<MisEnCauseEntity> {
 	 */
 	private String prenom;
 
-	private MisEnCauseEntity miseEnCause;
-
+	private boolean sexe;
 
 	private MiseEnCauseEntityBuilder() {
 
@@ -50,19 +49,12 @@ public class MiseEnCauseEntityBuilder implements IBuilder<MisEnCauseEntity> {
 	}
 
 	public MisEnCauseEntity build() {
-		if (miseEnCause == null) {
-			miseEnCause = new MisEnCauseEntity();
-		}
-		return miseEnCause;
+
+		return new MisEnCauseEntity(nom, prenom, sexe);
 	}
 
 	public static MiseEnCauseEntityBuilder newBuilder() {
 		return new MiseEnCauseEntityBuilder();
 	}
-
-	
-	
-	
-	
 
 }

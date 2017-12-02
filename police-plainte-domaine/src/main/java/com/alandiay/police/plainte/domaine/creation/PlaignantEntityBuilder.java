@@ -23,6 +23,8 @@ public class PlaignantEntityBuilder implements IBuilder<PlaignantEntity> {
 		this.prenom = prenom;
 		return this;
 	}
+	
+
 
 	/**
 	 * 
@@ -39,11 +41,13 @@ public class PlaignantEntityBuilder implements IBuilder<PlaignantEntity> {
 	}
 	
 	
-	public PlaignantEntityBuilder newBuilder(){
+	public static PlaignantEntityBuilder  newBuilder(){
 		return new PlaignantEntityBuilder();
 	}
 
 	private PlaignantEntityBuilder() {
 		super();
 	}
+	
+	
 }
