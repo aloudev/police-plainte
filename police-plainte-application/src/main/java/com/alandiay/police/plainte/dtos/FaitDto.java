@@ -26,6 +26,12 @@ public class FaitDto  implements Serializable{
 		return descriptionFait;
 	}
 
+	@Override
+	public String toString() {
+		return "FaitDto [dateFait=" + dateFait + ", descriptionFait="
+				+ descriptionFait + "]";
+	}
+
 	public void setDescriptionFait(String descriptionFait) {
 		this.descriptionFait = descriptionFait;
 	}

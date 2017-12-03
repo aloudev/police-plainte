@@ -1,4 +1,4 @@
-package com.alandiay.parent_police_plainte;
+package com.alandiay.parent.police.plainte.application.services.interfaces;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

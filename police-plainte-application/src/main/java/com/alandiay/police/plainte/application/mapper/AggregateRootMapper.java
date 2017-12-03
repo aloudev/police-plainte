@@ -4,7 +4,6 @@ import java.util.Date;
 
 import com.alandiay.police.plainte.domaine.models.PlainteAggregateRoot;
 import com.alandiay.police.plainte.dtos.FaitDto;
-import com.alandiay.police.plainte.dtos.PlaignantDto;
 import com.alandiay.police.plainte.dtos.PlainteDto;
 
 public class AggregateRootMapper extends ConfigurableMapper implements
@@ -16,7 +15,6 @@ public class AggregateRootMapper extends ConfigurableMapper implements
 
 	private PlainteDto plainteDto;
 
-
 	private Date dateDeclaration;
 
 	public ISmartMapper<PlainteAggregateRoot, PlainteDto> take(
@@ -25,9 +23,8 @@ public class AggregateRootMapper extends ConfigurableMapper implements
 		return this;
 	}
 
-	public ISmartMapper map() {
-		this.dateDeclaration = plainte
-				.getDateDeclarationPlainte();
+	public ISmartMapper<PlainteAggregateRoot, PlainteDto> map() {
+		this.dateDeclaration = plainte.getDateDeclarationPlainte();
 		for (ConfigurableMapper sousMapper : getSousMappers()) {
 			((ISmartMapper) sousMapper).map();
 		}
@@ -51,29 +48,18 @@ public class AggregateRootMapper extends ConfigurableMapper implements
 		this.plainte = plainte;
 	}
 
-	public void setFait(FaitDto entity) {
-		
-	}
-
-	public void setPlaignat(PlaignantDto entity) {
-		
-	}
-
-
-
-	@Override
-	public void setValueEntity() {
-		
+	public void setFait(FaitDto faitDto) {
+		this.faitDto = faitDto;
 	}
 
 	@Override
-	public void setValueDto() {
-		// TODO Auto-generated method stub
-		
+	public void setValueEntityFromSupperMapper() {
+
 	}
 
-	
+	@Override
+	public void setValueDtoToSupperMapper() {
 
-	
-	
+	}
+
 }

@@ -33,9 +33,12 @@ public class PlainteDto implements Serializable {
 		this.dateDeclaration = dateDeclaration;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "{dateDeclaration : " + dateDeclaration + "}";
+		return "PlainteDto [dateDeclaration=" + dateDeclaration + ", fait="
+				+ fait + "]";
 	}
 
 	public FaitDto getFait() {

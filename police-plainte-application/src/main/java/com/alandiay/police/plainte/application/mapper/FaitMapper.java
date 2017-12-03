@@ -19,17 +19,16 @@ public abstract class FaitMapper extends ConfigurableMapper implements
 		return this;
 	}
 
-	public ISmartMapper map() {
-		
-		setValueEntity();
+	public ISmartMapper<FaitEntity, FaitDto> map() {
+
+		setValueEntityFromSupperMapper();
 		faitDto.setDescriptionFait(fait.getDescriptionFait());
 		faitDto.setDateFait(fait.getDateFait());
-		
+
 		for (ConfigurableMapper sousMapper : getSousMappers()) {
 			((ISmartMapper) sousMapper).map();
 		}
-		faitDto = new FaitDto();
-		setValueDto();
+		setValueDtoToSupperMapper();
 		return this;
 	}
 
