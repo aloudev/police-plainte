@@ -11,3 +11,4 @@
 /police-plainte-common/*.project
 /police-plainte-application/*.gitignore
 /police-plainte-application/*.project
+.gitignore
