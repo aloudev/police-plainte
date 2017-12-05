@@ -1,0 +1,14 @@
+.openBox{
+	display : block;
+}
+
+.closeBox{
+	display: none;
+}
+
+.marginBox{	
+}
+
+.fixedElement{
+position:fixed;	
+}

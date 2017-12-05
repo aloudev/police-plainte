@@ -1,0 +1,13 @@
+.settings
+*.classpath
+/process-api/*.gitignore
+/process-api/*.project
+/police-plainte-domaine/*.gitignore
+/police-plainte-domaine/*.project
+/police-plainte-infrastructure/*.gitignore
+/police-plainte-infrastructure/*.project
+/parent-police-plainte/*.project
+/parent-police-plainte/target/*.gitignore
+/police-plainte-common/*.project
+/police-plainte-application/*.gitignore
+/police-plainte-application/*.project

@@ -19,7 +19,7 @@ public class PlaignantEntityBuilder implements IBuilder<PlaignantEntity> {
 		return this;
 	}
 
-	public PlaignantEntityBuilder withPreNom(String prenom) {
+	public PlaignantEntityBuilder withPrenom(String prenom) {
 		this.prenom = prenom;
 		return this;
 	}

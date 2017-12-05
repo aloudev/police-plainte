@@ -1,21 +1,37 @@
 package org.bic.process.api.objets;
 
-import org.bic.process.api.multithreading.enums.ProcessStatusEnum;
-
-
+import org.bic.process.api.enums.ProcessStatusEnum;
+/**
+ * contexte du process
+ * @author alandiay
+ *
+ */
 public class ProcessContexte {
-  
-  private ProcessStatusEnum status;
 
-  
-  public ProcessStatusEnum getStatus() {
-    return status;
-  }
+	/**
+	 * statut du contexte
+	 */
+	private ProcessStatusEnum status;
 
-  
-  public void setStatus(ProcessStatusEnum status) {
-    this.status = status;
-  }
-  
-  
+	/**
+	 * contexte ouvert ou fermé
+	 */
+	private boolean opened;
+
+	public ProcessStatusEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(ProcessStatusEnum status) {
+		this.status = status;
+	}
+
+	public boolean isOpened() {
+		return opened;
+	}
+
+	public void setOpened(boolean opened) {
+		this.opened = opened;
+	}
+
 }

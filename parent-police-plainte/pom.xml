@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -11,6 +12,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<projet.police.version>1.0.0.0-SNAPSHOT</projet.police.version>
+		<projet.police.artifact>parent-police-plainte</projet.police.artifact>
+		<projet.police.group>com.alandiay</projet.police.group>
+		<spring.version>5.0.0.RELEASE</spring.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
 	<dependencies>
@@ -25,6 +32,8 @@
 		<module>../police-plainte-common</module>
 		<module>../police-plainte-domaine</module>
 		<module>../police-plainte-infrastructure</module>
+		<module>../police-plainte-application</module>
+		<module>../police-plainte-exposition-rest</module>
 	</modules>
 
 </project>

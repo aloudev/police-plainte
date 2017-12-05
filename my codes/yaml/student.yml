@@ -1,0 +1,21 @@
+- etudiant:
+	nom: alassane
+	prenom: sow
+	age: 18
+	sexe: TRUE
+	languages:
+				- portuguese
+				- english
+				- spanish
+				
+- etudiant: &khadija
+	nom: alassane
+	prenom: sow
+	age: 18
+	sexe: FALSE
+- etudiant
+	nom: alassane
+	prenom: sow
+	age: 18
+	sexe: TRUE
+- etudiant: *khadija

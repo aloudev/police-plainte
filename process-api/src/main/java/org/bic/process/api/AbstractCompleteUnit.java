@@ -3,24 +3,19 @@ package org.bic.process.api;
 
 
 
+import org.bic.process.api.enums.ProcessStatusEnum;
 import org.bic.process.api.exception.ProcessException;
-import org.bic.process.api.multithreading.enums.ProcessStatusEnum;
 import org.bic.process.api.objets.ProcessContexte;
 import org.bic.process.api.pre.post.processor.IPostProcessor;
 import org.bic.process.api.pre.post.processor.IPreProcessor;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 public abstract class AbstractCompleteUnit<X,Y> {
     
-	@Autowired
 	private AbstractProcessUnit<X, Y> processCompleteUnit;
-	@Autowired  
 	private IContextIterator contextGenerator;
-	@Autowired
 	private IPostProcessor postProcessor;
-	@Autowired
 	private IPreProcessor preProcessor;
 
 
