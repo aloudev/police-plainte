@@ -5,7 +5,6 @@ import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.sql.DataSource;
@@ -14,8 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -28,6 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author alandiay
  *
  */
+
 @Configuration
 @EnableTransactionManagement
 public class PlainteJPAConfigurationSpring {
@@ -51,19 +49,6 @@ public class PlainteJPAConfigurationSpring {
 	 * @return DataSource
 	 */
 
-//	@Bean
-////	@Profile("dev")
-//	public DataSource dataSourceDev() {
-//
-//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//
-//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//		dataSource.setUrl("jdbc:mysql://localhost:3306/police_plainte");
-//		dataSource.setUsername("root");
-//		dataSource.setPassword("");
-//		
-//		return dataSource;
-//	}
 
 	/**
 	 * source de données fournie par le conteneur
